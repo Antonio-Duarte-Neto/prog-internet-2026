@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contato</title>
-     <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contato</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
   <header>
-        <h1>Meu Mini-Site</h1>
-    </header>
-    
-<div class="container">
+    <h1>Meu Mini-Site</h1>
+  </header>
+
+  <div class="container">
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
     </nav>
-</div>
+  </div>
 
   <form class="form-contato">
 
@@ -37,17 +39,26 @@
 
     <label for="assunto">Assunto:</label>
     <select id="assunto">
-       <option value="">Selecione</option>
-       <option value="duvida">Dúvida</option>
-       <option value="sugestao">Sugestão</option>
-       <option value="contato">Contato</option>
+      <option value="">Selecione</option>
+      <option value="duvida">Dúvida</option>
+      <option value="sugestao">Sugestão</option>
+      <option value="contato">Contato</option>
     </select>
-    
+
     <label for="mensagem">Mensagem:</label>
     <textarea id="mensagem" rows="4" required></textarea>
 
     <button type="submit">Enviar</button>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Olá Mundo!"'>Clique aqui</button>
+
+    <button type="submit">Enviar</button>
 
   </form>
+
+  <footer>
+    <p>Antonio Duarte - 2026</p>
+  </footer>
+
 </body>
+
 </html>

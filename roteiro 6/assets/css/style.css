@@ -156,6 +156,8 @@ button { /* Estiliza o botão de envio do formulário */
     transition: background-color 0.3s ease;
 }
 
+
+
 button:hover { /* Altera a cor de fundo do botão ao passar o mouse */
     background-color: #0055aa;
 }
