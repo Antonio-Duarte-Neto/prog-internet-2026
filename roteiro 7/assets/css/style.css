@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffffff;
+    /* Altera a cor do link ao passar o mouse */
+    font-size: 25px;
+    /* Aumenta o tamanho da fonte ao passar o mouse */
+    background-color: #003366;
+    /* Adiciona um fundo azul claro ao passar o mouse */
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.card:active {
+    transform: translateY(3px);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    background-color: #a0a0a0;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.card:hover {
+    transform: rotate(3deg) translateY(-5px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+@media(max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        width: 90%;
+    }
+}
+
+.cards:hover {
+    transform: translate3d(0, -5px, 0);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background-color: #a0a0a0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Adiciona um espaço entre os elementos do formulário */
+    background-color: white;
+    padding: 20px;
+    /* Adiciona um preenchimento interno para o formulário */
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    /* Define a largura máxima do formulário */
+    margin: 20px auto;
+}
+
+input,
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus, /* Estiliza os campos de entrada quando estão em foco (clicados) */
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #003366;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+}
+
+button { /* Estiliza o botão de envio do formulário */
+    background-color: #003366;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* Adiciona um cursor de ponteiro para indicar que o botão é clicável */
+    transition: background-color 0.3s ease;
+}
+
+
+
+button:hover { /* Altera a cor de fundo do botão ao passar o mouse */
+    background-color: #0055aa;
+}
+
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: red;
+}
