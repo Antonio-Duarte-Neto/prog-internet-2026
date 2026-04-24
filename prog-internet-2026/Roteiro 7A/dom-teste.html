@@ -5,43 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
+
+
 
 <body>
 
-    <h1 id="titulo">Olá Mundo!</h1>
-    <button onclick="mudarTexto()">Clique Aqui</button>
+    <div class="box">
+        <h1 id="titulo">Olá Mundo!</h1>
+        <button onclick="mudarTexto()">Clique Aqui</button>
+    </div>
 
-    <ul id="minhaLista"></ul>
-    <button id="add">Adicionar Item</button>
+    <div class="box">
+        <h1>Lista Dinâmica</h1>
+        <ul id="minhaLista"></ul>
+        <button id="add">Adicionar Item</button>
+    </div>
 
-    <h2 id="contador">0</h2>
-    <button id="btnSoma">Contar +1</button>
+    <div class="box">
+        <h1>Contador</h1>
+        <h2 id="contador">0</h2>
+        <button id="btnSoma">Contar +1</button>
+    </div>
 
     <br>
     <br>
+    <div class="box">
+        <img id="lampada" src="desligada.png" style="width:100px">
+        <button id="btnInterruptor">Ligar/Desligar</button>
+    </div>
 
-    <img id="lampada" src="desligada.png" style="width:100px">
-    <button id="btnInterruptor">Ligar/Desligar</button>
+    <br>
 
     <!-- Jogo de advinhação -->
-
-    <input type="number" id="palpite" placeholder="0 a 10">
-    <button id="btnChutar">Chutar!</button>
-    <p id="feedback"></p>
+    <div class="box">
+        <h1>Jogo de Adivinhação</h1>
+        <input type="number" id="palpite" placeholder="Digite um numero de 0 a 10">
+        <button id="btnChutar">Chutar!</button>
+        <p id="feedback"></p>
+    </div>
 
     <!-- Botão fugitivo -->
+    <div class="box">
+        <h1>Botão Fugitivo</h1>
+        <p>Erros: <span id="contadorErros">0</span></p>
+        <button id="fugitivo" style="position: absolute; left: 50%; top: 50%;">
+            Pegue-me!
+        </button>
+    </div>
 
-    <p>Erros: <span id="contadorErros">0</span></p>
-    <button id="fugitivo" style="position: absolute; left: 50%; top: 50%;">
-        Pegue-me!
-    </button>
+    <!--Jokenpô-->
+
+    <div class="box">
+        <h1>Jokenpô</h1>
+        <button onclick="jogar('pedra')">&#9994 Pedra</button>
+        <button onclick="jogar('papel')">&#x270B Papel</button>
+        <button onclick="jogar('tesoura')">&#x270C Tesoura</button>
+        <h3 id="resultadodoJogo">Escolha um!</h3>
+    </div>
 
     <script>
 
         //======================================================
         //==DEFINIÇÃO DE VARIAVIES E SELETORES DO ELEMENTO DOM==
         //======================================================
+
 
 
         const lista = document.getElementById("minhaLista");
@@ -58,6 +102,8 @@
         // const placar = document.getElementById("contadorErros");
         // let erros = 0;
 
+        // Jogo de adivinhação
+
         const segredo = Math.floor(Math.random() * 11);
         const campo = document.getElementById("palpite");
         const texto = document.getElementById("feedback");
@@ -67,19 +113,28 @@
         const placar = document.getElementById("contadorErros");
         let erros = 0;
 
+        // Jokenpô
+
+        const opcoes = ['pedra', 'papel', 'tesoura'];
+
         //======================================================
 
+        //==DEFINIÇÃO DE EVENTOS E FUNÇÕES==
+
+        // Botão fugitivo
         btn.addEventListener("mouseover", () => {
             erros++;
             placar.innerText = erros;
             // Mudar posição aleatoriamente
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 50);
-            btn.style.left = `${x} px`;
-            btn.style.top = `${y} px`;
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
         });
 
         btn.addEventListener("click", () => alert(" Você me pegou!"));
+
+        // Jogo de advinhação
 
         btnChutar.addEventListener("click", () => {
             const chute = Number(campo.value);
@@ -120,6 +175,25 @@
             const titulo = document.getElementById("titulo");
             titulo.innerText = "JavaScript funcionando!";
             titulo.style.color = "blue";
+        }
+
+        // Jokenpô
+
+        function jogar(player) {
+            const pc = opcoes[Math.floor(Math.random() * 3)]; // Escolha aleatória do PC
+            const res = document.getElementById("resultadodoJogo"); // Elemento para mostrar o resultado
+
+            if (player === pc) {
+                res.innerText = `Empate! Ambos escolheram ${pc}`;
+            } else if (
+                (player === 'pedra' && pc === 'tesoura') ||
+                (player === 'papel' && pc === 'pedra') ||
+                (player === 'tesoura' && pc === 'papel')
+            ) {
+                res.innerText = `Você ganhou! ${player} vence ${pc}`;
+            } else {
+                res.innerText = `Você perdeu! ${pc} vence ${player}`;
+            }
         }
     </script>
 
